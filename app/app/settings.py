@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework.authtoken',
     'core',
+    'django_extensions',
     'user',
     'doctor',
     'drf_yasg',

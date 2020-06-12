@@ -232,7 +232,7 @@ https://templatemo.com/tm-516-known
                 <div className="col-md-12 col-sm-12">
                   <div className="section-title">
                     <h2>
-                      Teachers <small>Meet Professional Trainers</small>
+                      Doctors <small>Meet Medical Practioner</small>
                     </h2>
                   </div>
                 </div>

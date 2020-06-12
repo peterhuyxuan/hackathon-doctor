@@ -1,6 +1,6 @@
 from faker import Faker
 fake = Faker()
-from core.models import User
+from core.models import User, Tag
 import random
 import time
 
@@ -24,6 +24,25 @@ def str_time_prop(start, end, format, prop):
 def random_date(start, end, prop):
     return str_time_prop(start, end, '%m/%d/%Y %I:%M %p', prop)
 
+tags = [
+    'Cardiology ',
+    'Clinical genetics ',
+    'Clinical pharmacology ',
+    'Endocrinology ',
+    'Gastroenterology and hepatology ',
+    'General medicine ',
+    'Geriatric medicine ',
+    'Haematology ',
+    'Immunology and allergy ',
+    'Infectious diseases ',
+    'Medical oncology ',
+    'Nephrology ',
+    'Neurology ',
+    'Nuclear medicine ',
+    'Respiratory and sleep medicine ',
+    'Rheumatology'
+]
+
 def run(*args):
     for i in range(0, 1000):
         User.object.create(
@@ -34,12 +53,7 @@ def run(*args):
             profesion=None,
             is_staff=True
         )
-        User.object.create(
-            email=fake.email(),
-            name=.fake.name(),
-            registration_number=None,
-            registration_expiry_date=random_date("1/1/1980 1:30 PM", "1/1/2020 4:50 AM", random.random()),
-            profesion=None,
-            is_staff=False
-        )
+        
+        for j in range(0, len(tags)):
+            Tag.object.create(name=tags[j])
 

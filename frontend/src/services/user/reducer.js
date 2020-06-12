@@ -7,7 +7,11 @@ import {
     USERS_REGISTER_FAILURE,
 } from "./constants";
 
-const initialState = {};
+const initialState = {
+    me: {
+        bookingevent_set: []
+    }
+};
 
 export default (state = initialState, { type, payload }) => {
     switch (type) {

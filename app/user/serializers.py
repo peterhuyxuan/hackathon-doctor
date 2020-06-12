@@ -2,6 +2,15 @@ from django.contrib.auth import get_user_model, authenticate
 from django.utils.translation import ugettext_lazy as _
 
 from rest_framework import serializers
+from doctor.serializers import BookingEventSerializer
+
+class UserMeSerializer(serializers.ModelSerializer):
+    bookingevent_set = BookingEventSerializer(many=True, read_only=True)
+
+    class Meta:
+        model = get_user_model()
+        fields = ('id', 'email', 'name', 'profession', 'registration_number', 'registration_expiry_date', 'bookingevent_set')
+        read_only_fields = ('id', 'email', 'name', 'profession', 'registration_number', 'registration_expiry_date', 'bookingevent_set')
 
 
 class UserSerializer(serializers.ModelSerializer):

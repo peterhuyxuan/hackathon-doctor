@@ -36,6 +36,8 @@ class BookingRequestDetailSerializer(serializers.ModelSerializer):
 
 
 class BookingEventSerializer(serializers.ModelSerializer):
+    request = BookingRequestDetailSerializer(read_only=True)
+
     class Meta:
         model = BookingEvent
         fields = ('id', 'doctors', 'request', 'start_date', 'end_date', 'url')

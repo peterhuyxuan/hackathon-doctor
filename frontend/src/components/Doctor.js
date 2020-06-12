@@ -1,22 +1,38 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useHistory } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import { Button } from "antd";
+import { useDispatch, useSelector } from "react-redux";
+import { Button, Row, Col } from "antd";
 
 import { logout } from "../services/auth/actions";
+import { fetchMe } from "../services/user/actions";
 
 const Doctor = () => {
     const dispatch = useDispatch();
     const history = useHistory();
+
+    useEffect(() => {
+        dispatch(fetchMe());
+    }, []);
+
     const handleLogout = () => {
         dispatch(logout());
         history.push("/");
     };
+    const { bookingevent_set } = useSelector((state) => state.user.me);
     return (
         <div className="mt-50">
             <h1>
-                <Button type="primary" onClick={handleLogout}>Logout</Button>
+                <Button type="primary" onClick={handleLogout}>
+                    Logout
+                </Button>
             </h1>
+            <Row>
+                {bookingevent_set.map((event) => (
+                    <Col key={event.id} xs={2} sm={4} md={6} lg={8} xl={10}>
+                        {event.name}
+                    </Col>
+                ))}
+            </Row>
         </div>
     );
 };

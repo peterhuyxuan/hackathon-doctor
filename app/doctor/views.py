@@ -31,7 +31,7 @@ class TagViewSet(BaseBookingAttrViewSet):
 
 class SymptomViewSet(viewsets.ModelViewSet):
     # authentication_classes = (TokenAuthentication,)
-    permission_classes = (IsAuthenticated,)
+    # permission_classes = (IsAuthenticated,)
 
     queryset = Symptom.objects.all()
     serializer_class = serializers.SymptomSerializer
@@ -39,7 +39,7 @@ class SymptomViewSet(viewsets.ModelViewSet):
 
 class BookingRequestViewSet(viewsets.ModelViewSet):
     # authentication_classes = (TokenAuthentication,)
-    permission_classes = (IsAuthenticated,)
+    # permission_classes = (IsAuthenticated,)
 
     queryset = BookingRequest.objects.all()
     serializer_class = serializers.BookingRequestSerializer
@@ -64,7 +64,7 @@ class BookingRequestViewSet(viewsets.ModelViewSet):
 
 class BookingEventViewSet(viewsets.ModelViewSet):
     # authentication_classes = (TokenAuthentication,)
-    permission_classes = (IsAuthenticated,)
+    # permission_classes = (IsAuthenticated,)
 
     queryset = BookingEvent.objects.all()
     serializer_class = serializers.BookingEventSerializer

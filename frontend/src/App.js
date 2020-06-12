@@ -12,6 +12,7 @@ import "./public/css/font-awesome.min.css";
 import "./public/css/owl.carousel.css";
 import "./public/css/owl.theme.default.min.css";
 import "./public/css/templatemo-style.css";
+import "antd/dist/antd.css";
 
 // import "./App.css";
 
@@ -27,9 +28,3 @@ function App() {
 }
 
 export default App;
-
-// EMail
-// First Name
-// Last Name
-// Age
-// Symption

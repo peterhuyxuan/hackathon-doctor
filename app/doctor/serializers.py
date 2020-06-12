@@ -28,6 +28,13 @@ class BookingRequestSerializer(serializers.ModelSerializer):
         read_only_fields = ('id',)
 
 
+class BookingRequestDetailSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = BookingRequest
+        fields = ('id', 'email', 'first_name', 'last_name', 'age', 'gender', 'symptoms', 'bookingevent_set')
+        read_only_fields = ('id',)
+
+
 class BookingEventSerializer(serializers.ModelSerializer):
     class Meta:
         model = BookingEvent

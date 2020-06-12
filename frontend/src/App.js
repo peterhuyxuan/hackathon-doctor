@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import { Provider } from "react-redux";
 import { BrowserRouter as Router } from "react-router-dom";
 import logo from "./logo.svg";
 
@@ -13,16 +14,19 @@ import "./public/css/owl.carousel.css";
 import "./public/css/owl.theme.default.min.css";
 import "./public/css/templatemo-style.css";
 import "antd/dist/antd.css";
-
 // import "./App.css";
+
+import store from "./store";
 
 function App() {
   return ReactDOM.render(
-    <Router>
-      <Navbar />
-      <Routes />
-      <Footer />
-    </Router>,
+    <Provider store={store}>
+      <Router>
+        <Navbar />
+        <Routes />
+        <Footer />
+      </Router>
+    </Provider>,
     document.getElementById("root")
   );
 }

@@ -1,3 +1,4 @@
+import datetime
 from rest_framework.decorators import action
 from rest_framework.response import Response
 from rest_framework import viewsets, mixins, status
@@ -14,7 +15,7 @@ class BaseBookingAttrViewSet(
     mixins.CreateModelMixin
 ):
     """Base viewset for user owned attributes"""
-    authentication_classes = (TokenAuthentication,)
+    # authentication_classes = (TokenAuthentication,)
     permission_classes = (IsAuthenticated,)
 
     def perform_create(self, serializer):
@@ -29,7 +30,7 @@ class TagViewSet(BaseBookingAttrViewSet):
 
 
 class SymptomViewSet(viewsets.ModelViewSet):
-    authentication_classes = (TokenAuthentication,)
+    # authentication_classes = (TokenAuthentication,)
     permission_classes = (IsAuthenticated,)
 
     queryset = Symptom.objects.all()
@@ -37,15 +38,32 @@ class SymptomViewSet(viewsets.ModelViewSet):
 
 
 class BookingRequestViewSet(viewsets.ModelViewSet):
-    authentication_classes = (TokenAuthentication,)
+    # authentication_classes = (TokenAuthentication,)
     permission_classes = (IsAuthenticated,)
 
     queryset = BookingRequest.objects.all()
     serializer_class = serializers.BookingRequestSerializer
 
+    def perform_create(self, serializer):
+        request = serializer.save()
+        event = BookingEvent(
+            start_date=datetime.datetime.utcnow(),
+            end_date=datetime.datetime.utcnow(),
+            request=request
+        )
+        event.save()
+
+
+    def get_serializer_class(self):
+        """Return appropriate serializer class"""
+        if self.action == 'retrieve':
+            return serializers.BookingRequestDetailSerializer
+
+        return self.serializer_class
+
 
 class BookingEventViewSet(viewsets.ModelViewSet):
-    authentication_classes = (TokenAuthentication,)
+    # authentication_classes = (TokenAuthentication,)
     permission_classes = (IsAuthenticated,)
 
     queryset = BookingEvent.objects.all()

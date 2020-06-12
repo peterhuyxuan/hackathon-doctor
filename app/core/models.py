@@ -88,3 +88,5 @@ class BookingEvent(models.Model):
     start_date = models.DateTimeField()
     end_date = models.DateTimeField()
     url = models.CharField(max_length=255)
+
+

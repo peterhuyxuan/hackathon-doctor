@@ -53,3 +53,38 @@ class Tag(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class Symptom(models.Model):
+    """Symptom"""
+    name = models.CharField(max_length=255)
+
+
+class BookingRequest(models.Model):
+    """Booking request"""
+    GENDER = [
+        ('M', 'Male'),
+        ('F', 'Female'),
+        ('O', 'Other')
+    ]
+    email = models.CharField(max_length=255)
+    first_name = models.CharField(max_length=255)
+    last_name = models.CharField(max_length=255)
+    age = models.PositiveIntegerField()
+    gender = models.CharField(max_length=1, choices=GENDER)
+    symptoms = models.ManyToManyField('Symptom')
+
+
+class BookingEvent(models.Model):
+    """Booking event"""
+    doctor = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE,
+    )
+    request = models.ForeignKey(
+        BookingRequest,
+        on_delete=models.CASCADE
+    )
+    start_date = models.DateTimeField()
+    end_date = models.DateTimeField()
+    url = models.CharField(max_length=255)

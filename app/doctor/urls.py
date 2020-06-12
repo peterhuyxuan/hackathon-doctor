@@ -8,6 +8,7 @@ router = DefaultRouter()
 router.register('tags', views.TagViewSet)
 router.register('symptoms', views.SymptomViewSet)
 router.register('booking-request', views.BookingRequestViewSet)
+router.register('booking-event', views.BookingEventViewSet)
 
 app_name = 'doctor'
 

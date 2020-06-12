@@ -65,10 +65,7 @@ class BookingRequest(models.Model):
 
 class BookingEvent(models.Model):
     """Booking event"""
-    doctor = models.ForeignKey(
-        settings.AUTH_USER_MODEL,
-        on_delete=models.CASCADE,
-    )
+    doctors = models.ManyToManyField(settings.AUTH_USER_MODEL)
     request = models.ForeignKey(
         BookingRequest,
         on_delete=models.CASCADE

@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from core.models import Tag, Symptom, BookingRequest
+from core.models import Tag, Symptom, BookingRequest, BookingEvent
 
 
 class TagSerializer(serializers.ModelSerializer):
@@ -25,4 +25,11 @@ class BookingRequestSerializer(serializers.ModelSerializer):
     class Meta:
         model = BookingRequest
         fields = ('id', 'email', 'first_name', 'last_name', 'age', 'gender', 'symptoms')
+        read_only_fields = ('id',)
+
+
+class BookingEventSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = BookingEvent
+        fields = ('id', 'doctors', 'request', 'start_date', 'end_date', 'url')
         read_only_fields = ('id',)

@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { Router, Switch, Route } from "react-router-dom";
 
+import PrivateRoute from "./containers/PrivateRoute";
+import PublicRoute from "./containers/PublicRoute";
 import Header from "./components/Header";
 import Doctor from "./components/Doctor";
 import LoginPage from "./components/LoginPage";
@@ -13,8 +15,8 @@ export default class Routes extends Component {
       <Router history={history}>
         <Switch>
           <Route path="/" exact component={Header} />
-          <Route path="/login" component={LoginPage} />
-          <Route path="/doctor" component={Doctor} />
+          <PublicRoute path="/login" component={LoginPage} />
+          <PrivateRoute path="/dashboard" component={Doctor} />
         </Switch>
       </Router>
     );

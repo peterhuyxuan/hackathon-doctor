@@ -4,7 +4,7 @@ from rest_framework import viewsets, mixins, status
 from rest_framework.authentication import TokenAuthentication
 from rest_framework.permissions import IsAuthenticated
 
-from core.models import Tag
+from core.models import Tag, Symptom
 from doctor import serializers
 
 
@@ -26,3 +26,11 @@ class TagViewSet(BaseBookingAttrViewSet):
     """Manage tags in the database"""
     queryset = Tag.objects.all()
     serializer_class = serializers.TagSerializer
+
+
+class SymptomViewSet(viewsets.ModelViewSet):
+    # authentication_classes = (TokenAuthentication,)
+    permission_classes = (IsAuthenticated,)
+
+    queryset = Symptom.objects.all()
+    serializer_class = serializers.SymptomSerializer

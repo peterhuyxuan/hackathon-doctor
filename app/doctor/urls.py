@@ -6,6 +6,7 @@ from doctor import views
 
 router = DefaultRouter()
 router.register('tags', views.TagViewSet)
+router.register('symptoms', views.SymptomViewSet)
 
 app_name = 'doctor'
 

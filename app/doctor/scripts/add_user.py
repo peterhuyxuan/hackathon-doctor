@@ -28,18 +28,9 @@ def run(*args):
     for i in range(0, 1000):
         User.object.create(
             email=fake.email(),
-            name=.fake.name(),
+            name=fake.name(),
             registration_number= ''.join(random.SystemRandom().choice(string.ascii_uppercase + string.digits) for _ in range(N)),
             registration_expiry_date=random_date("1/1/1980 1:30 PM", "1/1/2020 4:50 AM", random.random()),
             profesion=None,
             is_staff=True
         )
-        User.object.create(
-            email=fake.email(),
-            name=.fake.name(),
-            registration_number=None,
-            registration_expiry_date=random_date("1/1/1980 1:30 PM", "1/1/2020 4:50 AM", random.random()),
-            profesion=None,
-            is_staff=False
-        )
-

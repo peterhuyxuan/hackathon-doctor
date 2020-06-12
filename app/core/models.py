@@ -43,18 +43,6 @@ class User(AbstractBaseUser, PermissionsMixin):
     USERNAME_FIELD = "email"
 
 
-class Tag(models.Model):
-    """Tag to be used for a booking"""
-    name = models.CharField(max_length=255)
-    user = models.ForeignKey(
-        settings.AUTH_USER_MODEL,
-        on_delete=models.CASCADE,
-    )
-
-    def __str__(self):
-        return self.name
-
-
 class Symptom(models.Model):
     """Symptom"""
     name = models.CharField(max_length=255)
@@ -88,3 +76,16 @@ class BookingEvent(models.Model):
     start_date = models.DateTimeField()
     end_date = models.DateTimeField()
     url = models.CharField(max_length=255)
+
+
+class Tag(models.Model):
+    """Tag to be used for a booking"""
+    name = models.CharField(max_length=255)
+    user = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE,
+    )
+    symptom = models.ManyToManyField(Symptom)
+
+    def __str__(self):
+        return self.name

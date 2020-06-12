@@ -4,7 +4,7 @@ from rest_framework import viewsets, mixins, status
 from rest_framework.authentication import TokenAuthentication
 from rest_framework.permissions import IsAuthenticated
 
-from core.models import Tag, Symptom
+from core.models import Tag, Symptom, BookingRequest
 from doctor import serializers
 
 
@@ -29,8 +29,16 @@ class TagViewSet(BaseBookingAttrViewSet):
 
 
 class SymptomViewSet(viewsets.ModelViewSet):
-    # authentication_classes = (TokenAuthentication,)
+    authentication_classes = (TokenAuthentication,)
     permission_classes = (IsAuthenticated,)
 
     queryset = Symptom.objects.all()
     serializer_class = serializers.SymptomSerializer
+
+
+class BookingRequestViewSet(viewsets.ModelViewSet):
+    authentication_classes = (TokenAuthentication,)
+    permission_classes = (IsAuthenticated,)
+
+    queryset = BookingRequest.objects.all()
+    serializer_class = serializers.BookingRequestSerializer

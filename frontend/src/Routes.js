@@ -8,6 +8,7 @@ import Patient from "./components/Patient";
 import PatientStatus from "./components/PatientStatus";
 import Doctor from "./components/Doctor";
 import LoginPage from "./components/LoginPage";
+import RegistrationPage from "./components/RegistrationPage";
 
 import history from "./history";
 
@@ -21,6 +22,7 @@ export default class Routes extends Component {
           <Route path="/PatientStatus" component={PatientStatus} />
           <Route path="/Doctor" component={Doctor} />
           <PublicRoute path="/login" component={LoginPage} />
+          <PublicRoute path="/register" component={RegistrationPage} />
           <PrivateRoute path="/dashboard" component={Doctor} />
         </Switch>
       </Router>

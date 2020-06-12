@@ -64,6 +64,9 @@ class Navbar extends Component {
                   </a>
                 </li>
                 <li>
+                  <a href="/Patient">Patient</a>
+                </li>
+                <li>
                   <a href="/Doctor">Doctor</a>
                 </li>
               </ul>

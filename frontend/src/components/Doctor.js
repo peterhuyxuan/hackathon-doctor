@@ -30,7 +30,7 @@ const Doctor = () => {
             <Row>
                 {bookingevent_set.map((event) => (
                     <Col key={event.id} xs={2} sm={4} md={6} lg={8} xl={10}>
-                        {event.request}
+                        {event.id}
                     </Col>
                 ))}
             </Row>

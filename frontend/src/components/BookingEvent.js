@@ -8,6 +8,7 @@ const BookingEvent = () => {
     );
     return (
         <CeneteredLayout>
+            Your booking ID is:
             {bookingevent_set.map((event) => (
                 <h1 key={event}>{event}</h1>
             ))}

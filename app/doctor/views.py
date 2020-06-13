@@ -5,7 +5,7 @@ from rest_framework import viewsets, mixins, status
 from rest_framework.authentication import TokenAuthentication
 from rest_framework.permissions import IsAuthenticated
 
-from core.models import Tag, Symptom, BookingRequest, BookingEvent
+from core.models import Tag, Symptom, BookingRequest, BookingEvent, User
 from doctor import serializers
 
 
@@ -16,7 +16,7 @@ class BaseBookingAttrViewSet(
 ):
     """Base viewset for user owned attributes"""
     # authentication_classes = (TokenAuthentication,)
-    permission_classes = (IsAuthenticated,)
+    # permission_classes = (IsAuthenticated,)
 
     def perform_create(self, serializer):
         """Create a new object"""
@@ -31,7 +31,7 @@ class TagViewSet(BaseBookingAttrViewSet):
 
 class SymptomViewSet(viewsets.ModelViewSet):
     # authentication_classes = (TokenAuthentication,)
-    permission_classes = (IsAuthenticated,)
+    # permission_classes = (IsAuthenticated,)
 
     queryset = Symptom.objects.all()
     serializer_class = serializers.SymptomSerializer
@@ -39,18 +39,19 @@ class SymptomViewSet(viewsets.ModelViewSet):
 
 class BookingRequestViewSet(viewsets.ModelViewSet):
     # authentication_classes = (TokenAuthentication,)
-    permission_classes = (IsAuthenticated,)
+    # permission_classes = (IsAuthenticated,)
 
     queryset = BookingRequest.objects.all()
     serializer_class = serializers.BookingRequestSerializer
 
     def perform_create(self, serializer):
         request = serializer.save()
-        event = BookingEvent(
+        event = BookingEvent.objects.create(
             start_date=datetime.datetime.utcnow(),
             end_date=datetime.datetime.utcnow(),
             request=request
         )
+        event.doctors.add(User.objects.get(email="test@email.com"))
         event.save()
 
 
@@ -64,7 +65,7 @@ class BookingRequestViewSet(viewsets.ModelViewSet):
 
 class BookingEventViewSet(viewsets.ModelViewSet):
     # authentication_classes = (TokenAuthentication,)
-    permission_classes = (IsAuthenticated,)
+    # permission_classes = (IsAuthenticated,)
 
     queryset = BookingEvent.objects.all()
     serializer_class = serializers.BookingEventSerializer

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { Component } from "react";
 import { Checkbox, Row, Col, Form, Input, InputNumber, Button } from "antd";
 
@@ -5,10 +6,32 @@ const layout = {
   labelCol: { span: 8 },
   wrapperCol: { span: 16 },
 };
+=======
+import React, { useEffect } from "react";
+import { useHistory } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { Button, Row, Col } from "antd";
+>>>>>>> 881fbdbcd3621f141bec3c5ed05bd1a5065f3757
 
-class Doctor extends Component {
-  render() {
+import { logout } from "../services/auth/actions";
+import { fetchMe } from "../services/user/actions";
+
+const Doctor = () => {
+    const dispatch = useDispatch();
+    const history = useHistory();
+    const { bookingevent_set } = useSelector((state) => state.user.me);
+
+    useEffect(() => {
+        dispatch(fetchMe());
+    }, []);
+
+    const handleLogout = () => {
+        dispatch(logout());
+        history.push("/");
+    };
+    
     return (
+<<<<<<< HEAD
       <div className="mt-50">
         <section>
           <div className="container">
@@ -103,8 +126,23 @@ class Doctor extends Component {
           </div>
         </section>
       </div>
+=======
+        <div className="mt-50">
+            <h1>
+                <Button type="primary" onClick={handleLogout}>
+                    Logout
+                </Button>
+            </h1>
+            <Row>
+                {bookingevent_set.map((event) => (
+                    <Col key={event.id} xs={2} sm={4} md={6} lg={8} xl={10}>
+                        {event.request}
+                    </Col>
+                ))}
+            </Row>
+        </div>
+>>>>>>> 881fbdbcd3621f141bec3c5ed05bd1a5065f3757
     );
-  }
-}
+};
 
 export default Doctor;

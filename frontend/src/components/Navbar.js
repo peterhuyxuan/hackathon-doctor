@@ -67,10 +67,10 @@ class Navbar extends Component {
                   </a>
                 </li> */}
                 <li>
-                  <a href="/Patient">Patient</a>
+                  <a href="/patient">Patient</a>
                 </li>
                 <li>
-                  <a href="/Doctor">Doctor</a>
+                  <a href="/login">Doctor</a>
                 </li>
               </ul>
               <ul className="nav navbar-nav navbar-right">

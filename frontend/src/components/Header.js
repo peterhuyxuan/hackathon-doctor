@@ -1,4 +1,7 @@
 import React, { Component } from "react";
+import { Carousel } from "antd";
+
+const bold = (props) => <p style={{ fontWeight: "bold" }}>{props.children}</p>;
 
 class Header extends Component {
   render() {
@@ -30,110 +33,75 @@ https://templatemo.com/tm-516-known
           <link rel="stylesheet" href="public/css/templatemo-style.css" />
 
           {/* HOME */}
+
           <section id="home">
             <div className="row">
-              <div className="owl-carousel owl-theme home-slider">
-                <div className="item item-first">
-                  <div className="caption">
-                    <div className="container">
-                      <div className="col-md-6 col-sm-12">
-                        <h1>Distance Learning Education Center</h1>
-                        <h3>
-                          Our online courses are designed to fit in your
-                          industry supporting all-round with latest
-                          technologies.
-                        </h3>
-                        <a
-                          href="#feature"
-                          className="section-btn btn btn-default smoothScroll"
-                        >
-                          Discover more
-                        </a>
-                      </div>
-                    </div>
-                  </div>
+              <Carousel autoplay>
+                <div style={{ textAlign: "center" }}>
+                  <img
+                    src="images/health-check.jpg"
+                    style={{ margin: "auto" }}
+                  />
+                  {/* <h3>1</h3> */}
                 </div>
-                <div className="item item-second">
-                  <div className="caption">
-                    <div className="container">
-                      <div className="col-md-6 col-sm-12">
-                        <h1>Start your journey with our practical courses</h1>
-                        <h3>
-                          Our online courses are built in partnership with
-                          technology leaders and are designed to meet industry
-                          demands.
-                        </h3>
-                        <a
-                          href="#courses"
-                          className="section-btn btn btn-default smoothScroll"
-                        >
-                          Take a course
-                        </a>
-                      </div>
-                    </div>
-                  </div>
+                <div style={{ textAlign: "center" }}>
+                  <img
+                    src="images/1fc36e8e50d19bea745e240aedc264f5.jpg"
+                    style={{ margin: "auto" }}
+                  />
+                  {/* <h3>2</h3> */}
                 </div>
-                <div className="item item-third">
-                  <div className="caption">
-                    <div className="container">
-                      <div className="col-md-6 col-sm-12">
-                        <h1>Efficient Learning Methods</h1>
-                        <h3>
-                          Nam eget sapien vel nibh euismod vulputate in vel
-                          nibh. Quisque eu ex eu urna venenatis sollicitudin ut
-                          at libero. Visit{" "}
-                          <a
-                            rel="nofollow"
-                            href="https://www.facebook.com/templatemo"
-                          >
-                            templatemo
-                          </a>{" "}
-                          page.
-                        </h3>
-                        <a
-                          href="#contact"
-                          className="section-btn btn btn-default smoothScroll"
-                        >
-                          Let's chat
-                        </a>
-                      </div>
-                    </div>
-                  </div>
+                <div style={{ textAlign: "center" }}>
+                  <img
+                    src="images/bWFpbi9jaGVjay11cC5wbmc=.png"
+                    style={{ margin: "auto" }}
+                  />
+                  {/* <h3>3</h3> */}
                 </div>
-              </div>
+              </Carousel>
             </div>
           </section>
           {/* FEATURE */}
           <section id="feature">
             <div className="container">
-              <div className="row">
+              <div style={{ textAlign: "center" }}>
+                <h1>Welcome to our App!</h1>
+              </div>
+              <div className="row display-table">
                 <div className="col-md-4 col-sm-4">
                   <div className="feature-thumb">
                     <span>01</span>
-                    <h3>Trending Courses</h3>
+                    <h3>Medical Appointment Booking</h3>
                     <p>
-                      Known is free education HTML Bootstrap Template. You can
-                      modify in any way and use this for your website.
+                      Immediate service open 7 Days per Week with fully
+                      registered & qualified doctors. Choose a time that suits
+                      you, fill out a questionnaire & get video consultation
+                      with a doctor.
                     </p>
+                    <br />
                   </div>
                 </div>
                 <div className="col-md-4 col-sm-4">
                   <div className="feature-thumb">
                     <span>02</span>
-                    <h3>Books &amp; Library</h3>
+                    <h3>Healthy Living</h3>
                     <p>
-                      You are allowed to use Known HTML Template for your
-                      commercial or non-commercial websites.
+                      Healthy living takes practice, preparation and commitment
+                      but it's worth it. Find out what you could be doing to
+                      build a happier and healthier life!
                     </p>
+                    <br />
+                    <br />
+                    <br />
                   </div>
                 </div>
                 <div className="col-md-4 col-sm-4">
                   <div className="feature-thumb">
                     <span>03</span>
-                    <h3>Certified Teachers</h3>
+                    <h3>Latest news on COVID-19</h3>
                     <p>
-                      Please spread a word about us. Template redistribution is
-                      NOT allowed on any download website.
+                      Find the latest news, key facts and figure, contacts and
+                      phone numbers, and answers to your questions.
                     </p>
                   </div>
                 </div>
@@ -147,18 +115,22 @@ https://templatemo.com/tm-516-known
                 <div className="col-md-6 col-sm-12">
                   <div className="about-info">
                     <h2>
-                      Start your journey to a better life with online practical
-                      courses
+                      Start your journey to a better life with more accessible
+                      doctors anywhere, anytime!
                     </h2>
                     <figure>
                       <span>
                         <i className="fa fa-users" />
                       </span>
                       <figcaption>
-                        <h3>Professional Trainers</h3>
+                        <h3>Professional Medical Speciallist</h3>
                         <p>
-                          Lorem ipsum dolor sit amet, consectetur adipisicing
-                          elit. Sint ipsa voluptatibus.
+                          Having our best doctors in Australia here to address
+                          your medical issues across multiple fields to ensure
+                          you are provided with the best healthcare that is
+                          subsidised by your existing medicare plan and
+                          insurance providers that is accessible anywhere and
+                          anytime that you require it.
                         </p>
                       </figcaption>
                     </figure>
@@ -167,10 +139,14 @@ https://templatemo.com/tm-516-known
                         <i className="fa fa-certificate" />
                       </span>
                       <figcaption>
-                        <h3>International Certifications</h3>
+                        <h3>Video consultation</h3>
                         <p>
-                          Lorem ipsum dolor sit amet, consectetur adipisicing
-                          elit. Sint ipsa voluptatibus.
+                          We understand that it is not easy for you to reach a
+                          doctor, pharmacy, or other services. This is. why we
+                          have developed video consultation services with our
+                          team or experts, connecting users to our professional
+                          doctors, no matter where they find themselves in
+                          Australia.
                         </p>
                       </figcaption>
                     </figure>
@@ -179,10 +155,13 @@ https://templatemo.com/tm-516-known
                         <i className="fa fa-bar-chart-o" />
                       </span>
                       <figcaption>
-                        <h3>Free for 3 months</h3>
+                        <h3>Try out your first FREE consultations</h3>
                         <p>
-                          Lorem ipsum dolor sit amet, consectetur adipisicing
-                          elit. Sint ipsa voluptatibus.
+                          At the <bold>first free consultation</bold>, we will
+                          endeavour provide you with clear instructions to guide
+                          you to reach a <bold>better life</bold>. Take{" "}
+                          <bold>this first</bold> step towards your dream life!
+                          Book a <bold>free </bold>consultation today
                         </p>
                       </figcaption>
                     </figure>
@@ -191,7 +170,9 @@ https://templatemo.com/tm-516-known
                 <div className="col-md-offset-1 col-md-4 col-sm-12">
                   <div className="entry-form">
                     <form action="#" method="post">
-                      <h2>Signup today</h2>
+                      <h3 style={{ color: "#fff" }}>
+                        Sign In and Track Your Doctor
+                      </h3>
                       <input
                         type="text"
                         name="full name"
@@ -217,7 +198,7 @@ https://templatemo.com/tm-516-known
                         className="submit-btn form-control"
                         id="form-submit"
                       >
-                        Get started
+                        Submit
                       </button>
                     </form>
                   </div>
@@ -232,7 +213,8 @@ https://templatemo.com/tm-516-known
                 <div className="col-md-12 col-sm-12">
                   <div className="section-title">
                     <h2>
-                      Teachers <small>Meet Professional Trainers</small>
+                      Doctors{" "}
+                      <small>Meet our Professional Trained Speciallist</small>
                     </h2>
                   </div>
                 </div>
@@ -240,482 +222,67 @@ https://templatemo.com/tm-516-known
                   <div className="team-thumb">
                     <div className="team-image">
                       <img
-                        src="images/author-image1.jpg"
+                        src="images/doctor-img2.png"
                         className="img-responsive"
                         alt=""
                       />
                     </div>
                     <div className="team-info">
                       <h3>Mark Wilson</h3>
-                      <span>I love Teaching</span>
+                      <span>University of Oxford Class of 2012</span>
                     </div>
-                    <ul className="social-icon">
-                      <li>
-                        <a
-                          href="#"
-                          className="fa fa-facebook-square"
-                          attr="facebook icon"
-                        />
-                      </li>
-                      <li>
-                        <a href="#" className="fa fa-twitter" />
-                      </li>
-                      <li>
-                        <a href="#" className="fa fa-instagram" />
-                      </li>
-                    </ul>
                   </div>
                 </div>
                 <div className="col-md-3 col-sm-6">
                   <div className="team-thumb">
                     <div className="team-image">
                       <img
-                        src="images/author-image2.jpg"
-                        className="img-responsive"
-                        alt=""
-                      />
-                    </div>
-                    <div className="team-info">
-                      <h3>Catherine</h3>
-                      <span>Education is the key!</span>
-                    </div>
-                    <ul className="social-icon">
-                      <li>
-                        <a href="#" className="fa fa-google" />
-                      </li>
-                      <li>
-                        <a href="#" className="fa fa-instagram" />
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-                <div className="col-md-3 col-sm-6">
-                  <div className="team-thumb">
-                    <div className="team-image">
-                      <img
-                        src="images/author-image3.jpg"
+                        src="images/asian-female-doctor-writing-pad-isolated-white-background-32846976.jpg"
                         className="img-responsive"
                         alt=""
                       />
                     </div>
                     <div className="team-info">
                       <h3>Jessie Ca</h3>
-                      <span>I like Online Courses</span>
+                      <span>University of New South Wales Class of 2009</span>
                     </div>
-                    <ul className="social-icon">
-                      <li>
-                        <a href="#" className="fa fa-twitter" />
-                      </li>
-                      <li>
-                        <a href="#" className="fa fa-envelope-o" />
-                      </li>
-                      <li>
-                        <a href="#" className="fa fa-linkedin" />
-                      </li>
-                    </ul>
                   </div>
                 </div>
                 <div className="col-md-3 col-sm-6">
                   <div className="team-thumb">
                     <div className="team-image">
                       <img
-                        src="images/author-image4.jpg"
+                        src="images/194-1943610_transparent-nurses-png-doctor-transparent-background-png-download.png"
                         className="img-responsive"
                         alt=""
                       />
                     </div>
                     <div className="team-info">
-                      <h3>Andrew Berti</h3>
-                      <span>Learning is fun</span>
+                      <h3>Tyrone Anderson</h3>
+                      <span>Harvard Class of 1999</span>
                     </div>
-                    <ul className="social-icon">
-                      <li>
-                        <a href="#" className="fa fa-twitter" />
-                      </li>
-                      <li>
-                        <a href="#" className="fa fa-google" />
-                      </li>
-                      <li>
-                        <a href="#" className="fa fa-behance" />
-                      </li>
-                    </ul>
                   </div>
                 </div>
-              </div>
-            </div>
-          </section>
-          {/* Courses */}
-          <section id="courses">
-            <div className="container">
-              <div className="row">
-                <div className="col-md-12 col-sm-12">
-                  <div className="section-title">
-                    <h2>
-                      Popular Courses{" "}
-                      <small>Upgrade your skills with newest courses</small>
-                    </h2>
-                  </div>
-                  <div className="owl-carousel owl-theme owl-courses">
-                    <div className="col-md-4 col-sm-4">
-                      <div className="item">
-                        <div className="courses-thumb">
-                          <div className="courses-top">
-                            <div className="courses-image">
-                              <img
-                                src="images/courses-image1.jpg"
-                                className="img-responsive"
-                                alt=""
-                              />
-                            </div>
-                            <div className="courses-date">
-                              <span>
-                                <i className="fa fa-calendar" /> 12 / 7 / 2018
-                              </span>
-                              <span>
-                                <i className="fa fa-clock-o" /> 7 Hours
-                              </span>
-                            </div>
-                          </div>
-                          <div className="courses-detail">
-                            <h3>
-                              <a href="#">Social Media Management</a>
-                            </h3>
-                            <p>
-                              Lorem ipsum dolor sit amet, consectetur adipiscing
-                              elit.
-                            </p>
-                          </div>
-                          <div className="courses-info">
-                            <div className="courses-author">
-                              <img
-                                src="images/author-image1.jpg"
-                                className="img-responsive"
-                                alt=""
-                              />
-                              <span>Mark Wilson</span>
-                            </div>
-                            <div className="courses-price">
-                              <a href="#">
-                                <span>USD 25</span>
-                              </a>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
+
+                <div className="col-md-3 col-sm-6">
+                  <div className="team-thumb">
+                    <div className="team-image">
+                      <img
+                        src="images/doctor-writing-e1531897748239.png"
+                        className="img-responsive"
+                        alt=""
+                      />
                     </div>
-                    <div className="col-md-4 col-sm-4">
-                      <div className="item">
-                        <div className="courses-thumb">
-                          <div className="courses-top">
-                            <div className="courses-image">
-                              <img
-                                src="images/courses-image2.jpg"
-                                className="img-responsive"
-                                alt=""
-                              />
-                            </div>
-                            <div className="courses-date">
-                              <span>
-                                <i className="fa fa-calendar" /> 20 / 7 / 2018
-                              </span>
-                              <span>
-                                <i className="fa fa-clock-o" /> 4.5 Hours
-                              </span>
-                            </div>
-                          </div>
-                          <div className="courses-detail">
-                            <h3>
-                              <a href="#">Graphic &amp; Web Design</a>
-                            </h3>
-                            <p>
-                              Lorem ipsum dolor sit amet, consectetur adipiscing
-                              elit.
-                            </p>
-                          </div>
-                          <div className="courses-info">
-                            <div className="courses-author">
-                              <img
-                                src="images/author-image2.jpg"
-                                className="img-responsive"
-                                alt=""
-                              />
-                              <span>Jessica</span>
-                            </div>
-                            <div className="courses-price">
-                              <a href="#">
-                                <span>USD 80</span>
-                              </a>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="col-md-4 col-sm-4">
-                      <div className="item">
-                        <div className="courses-thumb">
-                          <div className="courses-top">
-                            <div className="courses-image">
-                              <img
-                                src="images/courses-image3.jpg"
-                                className="img-responsive"
-                                alt=""
-                              />
-                            </div>
-                            <div className="courses-date">
-                              <span>
-                                <i className="fa fa-calendar" /> 15 / 8 / 2018
-                              </span>
-                              <span>
-                                <i className="fa fa-clock-o" /> 6 Hours
-                              </span>
-                            </div>
-                          </div>
-                          <div className="courses-detail">
-                            <h3>
-                              <a href="#">Marketing Communication</a>
-                            </h3>
-                            <p>
-                              Lorem ipsum dolor sit amet, consectetur adipiscing
-                              elit.
-                            </p>
-                          </div>
-                          <div className="courses-info">
-                            <div className="courses-author">
-                              <img
-                                src="images/author-image3.jpg"
-                                className="img-responsive"
-                                alt=""
-                              />
-                              <span>Catherine</span>
-                            </div>
-                            <div className="courses-price free">
-                              <a href="#">
-                                <span>Free</span>
-                              </a>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="col-md-4 col-sm-4">
-                      <div className="item">
-                        <div className="courses-thumb">
-                          <div className="courses-top">
-                            <div className="courses-image">
-                              <img
-                                src="images/courses-image4.jpg"
-                                className="img-responsive"
-                                alt=""
-                              />
-                            </div>
-                            <div className="courses-date">
-                              <span>
-                                <i className="fa fa-calendar" /> 10 / 8 / 2018
-                              </span>
-                              <span>
-                                <i className="fa fa-clock-o" /> 8 Hours
-                              </span>
-                            </div>
-                          </div>
-                          <div className="courses-detail">
-                            <h3>
-                              <a href="#">Summer Kids</a>
-                            </h3>
-                            <p>
-                              Lorem ipsum dolor sit amet, consectetur adipiscing
-                              elit.
-                            </p>
-                          </div>
-                          <div className="courses-info">
-                            <div className="courses-author">
-                              <img
-                                src="images/author-image1.jpg"
-                                className="img-responsive"
-                                alt=""
-                              />
-                              <span>Mark Wilson</span>
-                            </div>
-                            <div className="courses-price">
-                              <a href="#">
-                                <span>USD 45</span>
-                              </a>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="col-md-4 col-sm-4">
-                      <div className="item">
-                        <div className="courses-thumb">
-                          <div className="courses-top">
-                            <div className="courses-image">
-                              <img
-                                src="images/courses-image5.jpg"
-                                className="img-responsive"
-                                alt=""
-                              />
-                            </div>
-                            <div className="courses-date">
-                              <span>
-                                <i className="fa fa-calendar" /> 5 / 10 / 2018
-                              </span>
-                              <span>
-                                <i className="fa fa-clock-o" /> 10 Hours
-                              </span>
-                            </div>
-                          </div>
-                          <div className="courses-detail">
-                            <h3>
-                              <a href="#">Business &amp; Management</a>
-                            </h3>
-                            <p>
-                              Lorem ipsum dolor sit amet, consectetur adipiscing
-                              elit.
-                            </p>
-                          </div>
-                          <div className="courses-info">
-                            <div className="courses-author">
-                              <img
-                                src="images/author-image2.jpg"
-                                className="img-responsive"
-                                alt=""
-                              />
-                              <span>Jessica</span>
-                            </div>
-                            <div className="courses-price free">
-                              <a href="#">
-                                <span>Free</span>
-                              </a>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
+                    <div className="team-info">
+                      <h3>Daniella Berti</h3>
+                      <span>Monash University Class of 2003</span>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
           </section>
-          {/* TESTIMONIAL */}
-          <section id="testimonial">
-            <div className="container">
-              <div className="row">
-                <div className="col-md-12 col-sm-12">
-                  <div className="section-title">
-                    <h2>
-                      Student Reviews <small>from around the world</small>
-                    </h2>
-                  </div>
-                  <div className="owl-carousel owl-theme owl-client">
-                    <div className="col-md-4 col-sm-4">
-                      <div className="item">
-                        <div className="tst-image">
-                          <img
-                            src="images/tst-image1.jpg"
-                            className="img-responsive"
-                            alt=""
-                          />
-                        </div>
-                        <div className="tst-author">
-                          <h4>Jackson</h4>
-                          <span>Shopify Developer</span>
-                        </div>
-                        <p>
-                          You really do help young creative minds to get quality
-                          education and professional job search assistance. I’d
-                          recommend it to everyone!
-                        </p>
-                        <div className="tst-rating">
-                          <i className="fa fa-star" />
-                          <i className="fa fa-star" />
-                          <i className="fa fa-star" />
-                          <i className="fa fa-star" />
-                          <i className="fa fa-star" />
-                        </div>
-                      </div>
-                    </div>
-                    <div className="col-md-4 col-sm-4">
-                      <div className="item">
-                        <div className="tst-image">
-                          <img
-                            src="images/tst-image2.jpg"
-                            className="img-responsive"
-                            alt=""
-                          />
-                        </div>
-                        <div className="tst-author">
-                          <h4>Camila</h4>
-                          <span>Marketing Manager</span>
-                        </div>
-                        <p>
-                          Trying something new is exciting! Thanks for the
-                          amazing law course and the great teacher who was able
-                          to make it interesting.
-                        </p>
-                        <div className="tst-rating">
-                          <i className="fa fa-star" />
-                          <i className="fa fa-star" />
-                          <i className="fa fa-star" />
-                        </div>
-                      </div>
-                    </div>
-                    <div className="col-md-4 col-sm-4">
-                      <div className="item">
-                        <div className="tst-image">
-                          <img
-                            src="images/tst-image3.jpg"
-                            className="img-responsive"
-                            alt=""
-                          />
-                        </div>
-                        <div className="tst-author">
-                          <h4>Barbie</h4>
-                          <span>Art Director</span>
-                        </div>
-                        <p>
-                          Donec erat libero, blandit vitae arcu eu, lacinia
-                          placerat justo. Sed sollicitudin quis felis vitae
-                          hendrerit.
-                        </p>
-                        <div className="tst-rating">
-                          <i className="fa fa-star" />
-                          <i className="fa fa-star" />
-                          <i className="fa fa-star" />
-                          <i className="fa fa-star" />
-                        </div>
-                      </div>
-                    </div>
-                    <div className="col-md-4 col-sm-4">
-                      <div className="item">
-                        <div className="tst-image">
-                          <img
-                            src="images/tst-image4.jpg"
-                            className="img-responsive"
-                            alt=""
-                          />
-                        </div>
-                        <div className="tst-author">
-                          <h4>Andrio</h4>
-                          <span>Web Developer</span>
-                        </div>
-                        <p>
-                          Nam eget mi eu ante faucibus viverra nec sed magna.
-                          Vivamus viverra sapien ex, elementum varius ex
-                          sagittis vel.
-                        </p>
-                        <div className="tst-rating">
-                          <i className="fa fa-star" />
-                          <i className="fa fa-star" />
-                          <i className="fa fa-star" />
-                          <i className="fa fa-star" />
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
+
           {/* CONTACT */}
           <section id="contact">
             <div className="container">
@@ -725,7 +292,7 @@ https://templatemo.com/tm-516-known
                     <div className="section-title">
                       <h2>
                         Contact us{" "}
-                        <small>we love conversations. let us talk!</small>
+                        <small>We would love to hear your inquiry!</small>
                       </h2>
                     </div>
                     <div className="col-md-12 col-sm-12">
@@ -777,7 +344,6 @@ https://templatemo.com/tm-516-known
 
           {/* SCRIPTS */}
         </div>
-        );
       </div>
     );
   }

@@ -14,6 +14,7 @@ import "./public/css/owl.carousel.css";
 import "./public/css/owl.theme.default.min.css";
 import "./public/css/templatemo-style.css";
 import "antd/dist/antd.css";
+import "./public/css/misc.css";
 // import "./App.css";
 
 import store from "./store";

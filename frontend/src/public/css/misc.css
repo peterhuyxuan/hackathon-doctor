@@ -1,0 +1,20 @@
+.ant-carousel .slick-slide {
+  text-align: center;
+  justify-content: center;
+  height: 275px;
+  line-height: 160px;
+  background: #29ca8e;
+  overflow: hidden;
+}
+
+.ant-carousel .slick-slide h3 {
+  color: #000;
+}
+
+.row.display-table {
+  display: table;
+}
+.row.display-table [class*="’col-’"] {
+  float: none;
+  display: table-cell;
+}

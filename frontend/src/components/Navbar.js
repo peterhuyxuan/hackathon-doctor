@@ -26,19 +26,22 @@ class Navbar extends Component {
                 <span className="icon icon-bar" />
               </button>
               {/* lOGO TEXT HERE */}
-              <a href="#" className="navbar-brand">
-                Known
+              <a href="/" className="navbar-brand">
+                <img
+                  src="images/440px-Department_of_Health_(Australia)_logo.svg.png"
+                  style={{ maxHeight: "200%", maxWidth: "200%" }}
+                />
               </a>
             </div>
             {/* MENU LINKS */}
             <div className="collapse navbar-collapse">
               <ul className="nav navbar-nav navbar-nav-first">
                 <li>
-                  <a href="#top" className="smoothScroll">
+                  <a href="/" className="smoothScroll">
                     Home
                   </a>
                 </li>
-                <li>
+                {/* <li>
                   <a href="#about" className="smoothScroll">
                     About
                   </a>
@@ -62,7 +65,7 @@ class Navbar extends Component {
                   <a href="#contact" className="smoothScroll">
                     Contact
                   </a>
-                </li>
+                </li> */}
                 <li>
                   <a href="/Patient">Patient</a>
                 </li>
@@ -73,7 +76,7 @@ class Navbar extends Component {
               <ul className="nav navbar-nav navbar-right">
                 <li>
                   <a href="#">
-                    <i className="fa fa-phone" /> +65 2244 1100
+                    <i className="fa fa-phone" /> 1800 020 103
                   </a>
                 </li>
               </ul>

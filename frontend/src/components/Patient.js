@@ -1,8 +1,11 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Checkbox, Row, Col, Form, Input, InputNumber, Button } from "antd";
+import { useHistory } from "react-router-dom";
+import { Checkbox, Row, Col, Form, Input, InputNumber, Button, Select } from "antd";
 
-import { fetchSymptoms } from "../services/doctor/actions";
+import { fetchSymptoms, createBooking } from "../services/doctor/actions";
+
+const { Option } = Select;
 
 const layout = {
     labelCol: { span: 8 },
@@ -11,10 +14,16 @@ const layout = {
 
 const Patient = () => {
     const dispatch = useDispatch();
+    const history = useHistory();
     const { symptoms } = useSelector((state) => state.doctor);
     useEffect(() => {
         dispatch(fetchSymptoms());
     }, []);
+    const onFinish = (values) => {
+        dispatch(createBooking(values)).then(() =>
+            history.push("/patient-status")
+        );
+    };
 
     return (
         <div className="mt-50">
@@ -23,12 +32,12 @@ const Patient = () => {
                     <Form
                         {...layout}
                         name="nest-messages"
-                        // onFinish={onFinish}
+                        onFinish={onFinish}
                         // validateMessages={validateMessages}
                     >
                         <Form.Item label="Name" style={{ marginBottom: 0 }}>
                             <Form.Item
-                                name="firstName"
+                                name="first_name"
                                 rules={[{ required: true }]}
                                 style={{
                                     display: "inline-block",
@@ -38,7 +47,7 @@ const Patient = () => {
                                 <Input placeholder="Enter First Name" />
                             </Form.Item>
                             <Form.Item
-                                name="lastName"
+                                name="last_name"
                                 rules={[{ required: true }]}
                                 style={{
                                     display: "inline-block",
@@ -50,21 +59,32 @@ const Patient = () => {
                             </Form.Item>
                         </Form.Item>
                         <Form.Item
-                            name={["user", "email"]}
+                            name="email"
                             label="Email"
                             rules={[{ type: "email" }]}
                         >
                             <Input placeholder="Enter Email" />
                         </Form.Item>
+                        <Form.Item name="gender" label="Gender">
+                            <Select
+                                placeholder="Select a option and change input text above"
+                                // onChange={onGenderChange}
+                                allowClear
+                            >
+                                <Option value="M">male</Option>
+                                <Option value="F">female</Option>
+                                <Option value="O">other</Option>
+                            </Select>
+                        </Form.Item>
                         <Form.Item
-                            name={["user", "age"]}
+                            name="age"
                             label="Age"
                             rules={[{ type: "number", min: 0, max: 99 }]}
                         >
                             <InputNumber placeholder="Enter Age" />
                         </Form.Item>
 
-                        <Form.Item name="checkbox-group" label="Symptoms">
+                        <Form.Item name="symptoms" label="Symptoms">
                             <Checkbox.Group>
                                 <Row>
                                     {symptoms.map((symptom) => (
@@ -84,13 +104,7 @@ const Patient = () => {
                         <Form.Item
                             wrapperCol={{ ...layout.wrapperCol, offset: 8 }}
                         >
-                            <Button
-                                type="primary"
-                                htmlType="submit"
-                                onClick={(event) =>
-                                    (window.location.href = "/PatientStatus")
-                                }
-                            >
+                            <Button type="primary" htmlType="submit">
                                 Submit
                             </Button>
                         </Form.Item>

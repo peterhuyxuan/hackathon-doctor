@@ -1,8 +1,9 @@
 from faker import Faker
 fake = Faker()
-from core.models import User
+from core.models import User, Tag
 import random
 import time
+import string
 
 def str_time_prop(start, end, format, prop):
     """Get a time at a proportion of a range of two formatted times.
@@ -24,13 +25,49 @@ def str_time_prop(start, end, format, prop):
 def random_date(start, end, prop):
     return str_time_prop(start, end, '%m/%d/%Y %I:%M %p', prop)
 
+tags = [
+    'Cardiology ',
+    'Clinical genetics ',
+    'Clinical pharmacology ',
+    'Endocrinology ',
+    'Gastroenterology and hepatology ',
+    'General medicine ',
+    'Geriatric medicine ',
+    'Haematology ',
+    'Immunology and allergy ',
+    'Infectious diseases ',
+    'Medical oncology ',
+    'Nephrology ',
+    'Neurology ',
+    'Nuclear medicine ',
+    'Respiratory and sleep medicine ',
+    'Rheumatology'
+]
+
 def run(*args):
-    for i in range(0, 1000):
-        User.object.create(
+    N = 10
+    for i in range(0, 100):
+        user = User.objects.create(
             email=fake.email(),
             name=fake.name(),
             registration_number= ''.join(random.SystemRandom().choice(string.ascii_uppercase + string.digits) for _ in range(N)),
             registration_expiry_date=random_date("1/1/1980 1:30 PM", "1/1/2020 4:50 AM", random.random()),
-            profesion=None,
+            profession=fake.job(),
             is_staff=True
         )
+        user.set_password("Pass123")
+        user.save()
+
+    user = User.objects.create(
+        email="test@email.com",
+        name=fake.name(),
+        registration_number= ''.join(random.SystemRandom().choice(string.ascii_uppercase + string.digits) for _ in range(N)),
+        registration_expiry_date=random_date("1/1/1980 1:30 PM", "1/1/2020 4:50 AM", random.random()),
+        profession=fake.job(),
+        is_staff=True
+    )
+    user.set_password("Pass1144")
+    user.save()
+        
+    for j in range(0, len(tags)):
+        Tag.objects.create(name=tags[j], user_id=int(random.random() * 100))

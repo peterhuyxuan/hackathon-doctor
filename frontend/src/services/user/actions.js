@@ -20,6 +20,7 @@ export const fetchMe = () => {
         return api.fetchMe().then(
             (response) => {
                 const me = response.data;
+                console.log(me)
                 dispatch(success({ me }));
                 return me;
             },

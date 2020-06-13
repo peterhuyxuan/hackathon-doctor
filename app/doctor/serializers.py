@@ -24,21 +24,20 @@ class SymptomSerializer(serializers.ModelSerializer):
 class BookingRequestSerializer(serializers.ModelSerializer):
     class Meta:
         model = BookingRequest
-        fields = ('id', 'email', 'first_name', 'last_name', 'age', 'gender', 'symptoms')
+        fields = ('id', 'email', 'first_name', 'last_name', 'age', 'gender', 'symptoms', 'bookingevent_set')
+        read_only_fields = ('id', 'bookingevent_set')
+
+
+class BookingEventSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = BookingEvent
+        fields = ('id', 'doctors', 'request', 'start_date', 'end_date', 'url')
         read_only_fields = ('id',)
 
 
 class BookingRequestDetailSerializer(serializers.ModelSerializer):
+    bookingevent_set = BookingEventSerializer(many=True, read_only=True)
     class Meta:
         model = BookingRequest
         fields = ('id', 'email', 'first_name', 'last_name', 'age', 'gender', 'symptoms', 'bookingevent_set')
-        read_only_fields = ('id',)
-
-
-class BookingEventSerializer(serializers.ModelSerializer):
-    request = BookingRequestDetailSerializer(read_only=True)
-
-    class Meta:
-        model = BookingEvent
-        fields = ('id', 'doctors', 'request', 'start_date', 'end_date', 'url')
         read_only_fields = ('id',)

@@ -1,7 +1,8 @@
-from rest_framework import generics, authentication, permissions
+from rest_framework import generics, authentication, permissions, mixins, viewsets
 from rest_framework.authtoken.views import ObtainAuthToken
 from rest_framework.settings import api_settings
-
+from rest_framework.response import Response
+from core.models import User
 from user.serializers import UserSerializer, AuthTokenSerializer, UserMeSerializer
 
 
@@ -16,7 +17,7 @@ class CreateTokenView(ObtainAuthToken):
     renderer_classes = api_settings.DEFAULT_RENDERER_CLASSES
 
 
-class ManageUserView(generics.RetrieveUpdateAPIView):
+class ManageUserView(generics.UpdateAPIView):
     """Manage the authenticated user"""
     serializer_class = UserSerializer
     authentication_classes = (authentication.TokenAuthentication,)
@@ -26,9 +27,16 @@ class ManageUserView(generics.RetrieveUpdateAPIView):
         """Retrieve and return authenticated user"""
         return self.request.user
 
-    def get_serializer_class(self):
-        """Return appropriate serializer class"""
-        if self.action == 'retrieve':
-            return UserMeSerializer
 
-        return self.serializer_class
+class GetMeView(generics.GenericAPIView, mixins.RetrieveModelMixin):
+    permission_classes = (permissions.IsAuthenticated,)
+    authentication_classes = (authentication.TokenAuthentication,)
+    queryset = User.objects.all()
+    serializer_class = UserMeSerializer
+
+    def get_object(self):
+        return self.request.user
+
+    def get(self, request):
+        serializer = UserMeSerializer(self.request.user)
+        return Response(serializer.data)
